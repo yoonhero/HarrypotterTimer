@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 import { useForm } from 'react-hook-form';
 import styled from "styled-components"
@@ -181,8 +182,8 @@ function App() {
     console.log(studytime, breaktime)
     if (!isNaN(studytime) && !isNaN(breaktime) && studyTime % 1 === 0 && breakTime % 1 === 0) {
 
-      setStudyTime(Math.floor(studytime) * 1)
-      setBreakTime(Math.floor(breaktime) * 1)
+      setStudyTime(Math.floor(studytime) * 60)
+      setBreakTime(Math.floor(breaktime) * 60)
     }
 
   }
