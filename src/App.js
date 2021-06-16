@@ -122,6 +122,10 @@ const TimerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 580px){
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const TimerText = styled.div`
