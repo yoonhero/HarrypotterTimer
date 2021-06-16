@@ -124,6 +124,20 @@ const TimerContainer = styled.div`
   justify-content: center;
 `
 
+const TimerText = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 60px;
+font-weight: 600;
+font-family: 'Roboto', sans-serif;
+
+`
+
+
 
 
 function App() {
@@ -163,8 +177,8 @@ function App() {
     console.log(studytime, breaktime)
     if (!isNaN(studytime) && !isNaN(breaktime) && studyTime % 1 === 0 && breakTime % 1 === 0) {
 
-      setStudyTime(Math.floor(studytime) * 60)
-      setBreakTime(Math.floor(breaktime) * 60)
+      setStudyTime(Math.floor(studytime) * 1)
+      setBreakTime(Math.floor(breaktime) * 1)
     }
 
   }
@@ -195,7 +209,6 @@ function App() {
           <Title weight="400" fontsize="35">for OWL</Title>
 
 
-
         </CircleBar>
         :
         <TimerContainer height={ window.innerWidth < 600 ? window.innerWidth * 0.9 : window.innerHeight * 0.7 } >
@@ -204,10 +217,13 @@ function App() {
               strokeLinecap: 'butt',
               textSize: '16px',
               pathTransitionDuration: 0.5,
-              pathColor: `#5B79A6`,
+              pathColor: `${mode === 0 ? "#5B79A6" : "#57AA99"}`,
               trailColor: '#262826'
             }) }>
-            <div style={ { color: "white" } }>{ timer > 60 ? String(Math.floor(timer / 60)) : "00" }:{ Math.floor(timer % 60) < 10 ? "0" + String(Math.floor(timer % 60)) : String(Math.floor(timer % 60)) }</div>
+            <TimerText style={ { color: "white" } }>
+              { mode === 1 ? <span style={ { fontSize: "30px" } }>Break Time!!</span> : null }
+              <span>{ timer > 60 ? String(Math.floor(timer / 60)) : "00" }:{ Math.floor(timer % 60) < 10 ? "0" + String(Math.floor(timer % 60)) : String(Math.floor(timer % 60)) }</span>
+            </TimerText>
           </CircularProgressbarWithChildren>
         </TimerContainer>
       }
