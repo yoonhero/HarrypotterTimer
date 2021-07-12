@@ -155,7 +155,6 @@ function App() {
     setTimer(studyTime)
   }, [studyTime])
   const flowtime = () => {
-    console.log("timer", timer)
     if (timer > 0) {
       setTimer(timer - 1)
     }
@@ -170,7 +169,7 @@ function App() {
 
   }, [timer])
   useEffect(() => {
-    console.log("mode", mode)
+
     if (mode === 0) {
       setTimer(studyTime)
     } else if (mode === 1) {
@@ -179,7 +178,6 @@ function App() {
   }, [mode])
   const onValid = () => {
     const { studytime, breaktime } = getValues()
-    console.log(studytime, breaktime)
     if (!isNaN(studytime) && !isNaN(breaktime) && studyTime % 1 === 0 && breakTime % 1 === 0) {
 
       setStudyTime(Math.floor(studytime) * 60)
